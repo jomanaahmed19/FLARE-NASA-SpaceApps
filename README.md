@@ -20,7 +20,7 @@ npm run dev
 ```
 
 Open your browser and navigate to:
-👉 **[http://localhost:3000](http://localhost:3000)**
+👉 **[Open Flare](https://flare-nasa-spaceapps.vercel.app)**
 
 ---
 
