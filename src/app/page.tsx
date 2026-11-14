@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { FlareLogo } from '@/components/ui/FlareLogo'
 import { StarField } from '@/components/ui/StarField'
+import { HeroPlanets } from '@/components/ui/HeroPlanets'
 import HeroCombustionSphere, {
   HERO_REGIMES,
   type HeroRegimeId,
@@ -101,6 +102,7 @@ export default function WelcomePage() {
           SECTION 1 — CINEMATIC EDITORIAL HERO
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative z-10 min-h-screen flex flex-col justify-between px-3.5 sm:px-6 md:px-12 py-4 sm:py-6 md:py-8">
+        <HeroPlanets />
         {/* ── Minimal Editorial Top Navigation ── */}
         <header className="flex items-center justify-between gap-2 sm:gap-4 border-b border-white/[0.06] pb-3 sm:pb-5">
           <div className="flex items-center gap-3 sm:gap-6 min-w-0">

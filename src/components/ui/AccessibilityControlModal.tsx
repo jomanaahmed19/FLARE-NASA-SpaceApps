@@ -16,6 +16,11 @@ export function AccessibilityTriggerButton({
   compact?: boolean
 }) {
   const { openModal, hasCustomPrefs } = useAccessibility()
+  const [isHydrated, setIsHydrated] = useState(false)
+
+  useEffect(() => {
+    setIsHydrated(true)
+  }, [])
 
   if (variant === 'kids') {
     return (
@@ -40,7 +45,7 @@ export function AccessibilityTriggerButton({
         <span className={compact ? 'sr-only sm:not-sr-only' : 'hidden md:inline'}>
           Accessibility
         </span>
-        {hasCustomPrefs && (
+        {isHydrated && hasCustomPrefs && (
           <span
             className="h-2 w-2 rounded-full bg-[#fde047] ring-2 ring-[#071126]"
             aria-label="Custom accessibility settings active"
@@ -70,7 +75,7 @@ export function AccessibilityTriggerButton({
         <path strokeLinecap="round" strokeLinejoin="round" d="M5 8.5h14M12 8.5v5m0 0l-3 6m3-6l3 6" />
       </svg>
       <span className={compact ? 'sr-only' : 'hidden xl:inline'}>A11y</span>
-      {hasCustomPrefs && (
+      {isHydrated && hasCustomPrefs && (
         <span
           className="h-2 w-2 rounded-full bg-amber-400"
           aria-label="Custom accessibility settings active"
