@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FLARE — NASA Space Apps Challenge 2026 Project Brief</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap');
+
+    @page {
+      size: A4 portrait;
+      margin: 16mm 14mm 16mm 14mm;
+      @bottom-right {
+        content: counter(page) " / " counter(pages);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8pt;
+        color: #64748b;
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.55;
+      color: #0f172a;
+      background: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header-banner {
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+
+    .badge-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .badge-primary {
+      background: #0f172a;
+      color: #ffffff;
+    }
+
+    .badge-accent {
+      background: #ea580c;
+      color: #ffffff;
+    }
+
+    .badge-outline {
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      background: #f8fafc;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24pt;
+      font-weight: 800;
+      color: #070d19;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: 11pt;
+      font-weight: 600;
+      color: #ea580c;
+      margin-bottom: 6px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 10px 14px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      margin-top: 10px;
+      font-size: 8pt;
+    }
+
+    .meta-item strong {
+      display: block;
+      color: #64748b;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      font-size: 6.5pt;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+
+    .meta-item span {
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13pt;
+      font-weight: 700;
+      color: #070d19;
+      border-left: 3.5px solid #ea580c;
+      padding-left: 8px;
+      margin: 18px 0 8px 0;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 10px 0 4px 0;
+    }
+
+    p {
+      margin-bottom: 7px;
+      text-align: justify;
+    }
+
+    .highlight-box {
+      background: #fffaf5;
+      border-left: 3px solid #ea580c;
+      border: 1px solid #fed7aa;
+      border-left-width: 3.5px;
+      padding: 10px 12px;
+      border-radius: 4px;
+      margin: 10px 0;
+      font-size: 9pt;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 10px 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 10px 12px;
+      break-inside: avoid;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #070d19;
+    }
+
+    ul {
+      margin-left: 16px;
+      margin-bottom: 8px;
+    }
+
+    li {
+      margin-bottom: 3px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+      font-size: 8pt;
+    }
+
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 5px 8px;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f5f9;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #334155;
+    }
+
+    .code-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.5pt;
+      background: #f1f5f9;
+      padding: 1px 4px;
+      border-radius: 3px;
+      color: #0f172a;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      padding-top: 10px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 7.5pt;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header-banner">
+    <div class="badge-row">
+      <span class="badge badge-primary">NASA Space Apps Challenge 2026</span>
+      <span class="badge badge-accent">Team WUNDERBAO</span>
+      <span class="badge badge-outline">Executive Project Brief</span>
+      <span class="badge badge-outline">Public &amp; Open Access</span>
+    </div>
+    <h1>FLARE</h1>
+    <div class="subtitle">Fire &amp; Life-Safety Analysis and Risk Explorer</div>
+    <p style="font-size: 10pt; color: #334155; margin-bottom: 0;">
+      <em>"Understand Fire. Explore Space. Discover Science."</em>
+    </p>
+
+    <div class="meta-grid">
+      <div class="meta-item">
+        <strong>GitHub Repository</strong>
+        <span>jomanaahmed19/FLARE-NASA-SpaceApps</span>
+      </div>
+      <div class="meta-item">
+        <strong>Platform Category</strong>
+        <span>Microgravity Combustion &amp; Life Safety</span>
+      </div>
+      <div class="meta-item">
+        <strong>Target Audiences</strong>
+        <span>Researchers, Students &amp; K-8 Classrooms</span>
+      </div>
+      <div class="meta-item">
+        <strong>Standards Compliance</strong>
+        <span>WCAG 2.2 Level AA · NASA-STD-6001B</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <h2>1. Executive Summary &amp; Vision</h2>
+  <p>
+    <strong>FLARE (Fire &amp; Life-Safety Analysis and Risk Explorer)</strong> is an interactive aerospace combustion research, spacecraft life-safety engineering, and scientific educational platform. Created by <strong>Team WUNDERBAO</strong> for the <strong>NASA Space Apps Challenge 2026</strong>, FLARE bridges complex microgravity combustion data with an intuitive, visually stunning, and interactive user experience.
+  </p>
+  <p>
+    By coupling real-time analytical combustion models (<span class="code-pill">D² Law</span> droplet and solid-sphere equivalent dynamics) with <strong>16 verified NASA flight investigations</strong> from the <em>Physical Sciences Informatics (PSI)</em> database, FLARE enables aerospace researchers, engineers, university students, and K-8 classrooms to explore, compare, and understand the critical physics governing spacecraft fire behavior.
+  </p>
+
+  <div class="highlight-box">
+    <strong>The Core Problem Solved:</strong>
+    On Earth, gravity pulls cool air down and pushes hot combustion exhaust up, stretching flames into buoyant vertical plumes. In microgravity, this buoyant lift vanishes. Flames become spherical, blue diffusion shells fed exclusively by slow molecular motion or forced HVAC airflow. Because fire behaves so counter-intuitively in space, spacecraft fire detection, flammability standards, and suppression protocols require specialized understanding—yet this critical scientific data has historically been siloed inside dense academic repositories. FLARE unlocks this research for everyone.
+  </div>
+
+  <!-- DUAL EXPERIENCE ARCHITECTURE -->
+  <h2>2. Dual-Experience Architecture</h2>
+  <p>
+    FLARE serves two distinct audiences under a unified, accessible design language:
+  </p>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">01 · Scientific Experience</span>
+        <span class="badge badge-primary">Researchers &amp; Engineers</span>
+      </div>
+      <p style="font-size: 8.5pt; color: #334155;">
+        A high-data-ink research workstation designed for aerospace engineers, combustion researchers, university academics, and competition judges:
+      </p>
+      <ul style="font-size: 8.5pt; margin-top: 4px;">
+        <li><strong>Interactive 3D Simulation Chamber:</strong> 5 diagnostic optical overlays (Flame Appearance, Temperature Map, Diffusion Gas Flow, Oxygen Concentration Zone, Soot/Smoke Yield).</li>
+        <li><strong>Analytical Physics Telemetry:</strong> Real-time numerical tracking of burning rate (<span class="code-pill">K</span>), flame temperature (<span class="code-pill">T_flame</span>), aspect ratio (<span class="code-pill">AR</span>), and heat release rate (<span class="code-pill">HRR</span>).</li>
+        <li><strong>Multi-Gravity Regimes:</strong> ISS Microgravity (0.001g), Lunar Habitat (0.16g), Martian Exploration (0.38g), Earth Reference (1.0g), and Centrifugal High-G (2.0g).</li>
+        <li><strong>Scientific Comparison Workbench:</strong> Side-by-side benchmarking of flight datasets vs. analytical models with explicit compatibility indicators.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">02 · FLARE Kids Universe</span>
+        <span class="badge badge-accent">Ages 7–13 &amp; Classrooms</span>
+      </div>
+      <p style="font-size: 8.5pt; color: #334155;">
+        A museum-grade, bright, welcoming discovery environment designed for young students, families, and K-8 educators:
+      </p>
+      <ul style="font-size: 8.5pt; margin-top: 4px;">
+        <li><strong>5 Guided Science Worlds:</strong> Step-by-step visual storytelling explaining why fire is round in space, how oxygen feeds flames, and how astronauts stay safe.</li>
+        <li><strong>Interactive 2D Sandbox (<span class="code-pill">SpaceFlame</span>):</strong> Safe experimentation with gravity toggles, oxygen levels (low/normal/high), and still vs. moving cabin air.</li>
+        <li><strong>Sparky the Space Flame Guide:</strong> A warm, pedagogical AI companion using everyday analogies to make complex thermodynamics intuitive.</li>
+        <li><strong>Ethical Educational Design:</strong> Zero gamification gimmicks, badges, or points—focused entirely on fostering authentic scientific curiosity.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PAGE BREAK FOR CLEAN PRINTING -->
+  <div class="page-break"></div>
+
+  <!-- KEY PLATFORM CAPABILITIES -->
+  <h2>3. Key Platform Capabilities &amp; Innovation</h2>
+
+  <div class="card" style="margin-bottom: 12px;">
+    <h3 style="margin-top: 0; color: #ea580c;">A. Analytical D² Law Simulation Engine</h3>
+    <p>
+      The core simulation engine implements the classical combustion <span class="code-pill">D² Law</span> droplet and spherical solid-equivalent model:
+      <br>
+      <center><strong style="font-family: 'JetBrains Mono', monospace; font-size: 9pt;">D²(t) = D₀² - K_eff · t</strong></center>
+      The burning rate constant (<span class="code-pill">K_eff</span>) dynamically couples empirical oxygen-mole-fraction enhancements, ambient pressure corrections, and ventilation airflow enhancements via convective Sherwood/Nusselt numbers. This provides instantaneous, responsive telemetry without pretending to run a heavyweight 3D Navier-Stokes CFD solver.
+    </p>
+  </div>
+
+  <div class="card" style="margin-bottom: 12px;">
+    <h3 style="margin-top: 0; color: #0284c7;">B. Verified NASA Research Database (16 Investigations)</h3>
+    <p>
+      FLARE organizes 16 landmark orbital microgravity combustion investigations from the NASA Physical Sciences Informatics (PSI) archive, complete with official investigation metadata, principal investigator credits, flight platforms, and deep links:
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Mission / Code</th>
+          <th>Flight Platform</th>
+          <th>Combustion Focus &amp; Scientific Objective</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Saffire I–VI</strong></td>
+          <td>Uncrewed Cygnus Cargo Vehicles</td>
+          <td>Large-scale spacecraft fire safety, material flammability (PMMA, Sibal cloth), and low-pressure exploration atmospheres (up to 34% O₂).</td>
+        </tr>
+        <tr>
+          <td><strong>FLEX &amp; FLEX-2</strong></td>
+          <td>ISS Combustion Integrated Rack</td>
+          <td>Droplet combustion, spherical diffusion flame dynamics, multi-component fuels, and low-temperature "cool-flame" kinetics.</td>
+        </tr>
+        <tr>
+          <td><strong>BASS &amp; BASS-II</strong></td>
+          <td>ISS Microgravity Science Glovebox</td>
+          <td>Burning and suppression of solid materials in low-speed forced flows for exploration spacecraft fire extinguishment.</td>
+        </tr>
+        <tr>
+          <td><strong>ACME</strong></td>
+          <td>ISS Combustion Integrated Rack</td>
+          <td>Advanced Combustion via Microgravity Experiments (5 gas-fuel modular experiments focused on soot reduction and pollutant control).</td>
+        </tr>
+        <tr>
+          <td><strong>SAME &amp; SAME-R</strong></td>
+          <td>ISS Destiny Laboratory Module</td>
+          <td>Spacecraft Fire Smoke Detector Characterization testing particle morphology and optical obscuration under zero-gravity conditions.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="margin-bottom: 12px;">
+    <h3 style="margin-top: 0; color: #16a34a;">C. Context-Aware Autonomous AI Science Agent</h3>
+    <p>
+      Operating in both the Scientific Experience and Kids Universe, FLARE's AI Assistant is powered by a multi-turn autonomous engine:
+    </p>
+    <ul style="font-size: 8.5pt;">
+      <li><strong>Context Retention:</strong> Automatically observes the user's active chamber parameters (fuel type, gravity, O₂, pressure, ventilation).</li>
+      <li><strong>Autonomous Tool Invocation:</strong> Executes real mathematical tools (<span class="code-pill">run_combustion_simulation</span>, <span class="code-pill">compare_combustion_states</span>, <span class="code-pill">search_nasa_experiments</span>, <span class="code-pill">retrieve_research_library</span>).</li>
+      <li><strong>Honest State Reporting:</strong> Transparently badges live Gemini API mode vs. deterministic offline fallback (<span class="code-pill">DEMO MODE</span>), explicitly communicating scientific assumptions and model boundaries.</li>
+    </ul>
+  </div>
+
+  <!-- PAGE BREAK FOR CLEAN PRINTING -->
+  <div class="page-break"></div>
+
+  <!-- ACCESSIBILITY & MOBILE RESPONSIVENESS -->
+  <h2>4. Universal Accessibility &amp; Mobile Optimization</h2>
+  <p>
+    FLARE was built with an uncompromising commitment to universal design, complying with <strong>WCAG 2.2 Level AA</strong>:
+  </p>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Cross-Device Responsive Engine</span>
+      </div>
+      <ul style="font-size: 8pt;">
+        <li><strong>100% Zero Horizontal Overflow:</strong> Validated across 6 standardized viewports: 320px (compact phone), 375px (iPhone SE), 390px (iPhone 14), 412px (Android Pixel), 768px (iPad tablet), and 1440px (desktop).</li>
+        <li><strong>Mobile Form Optimization:</strong> Automatic font clamping at <span class="code-pill">16px</span> on mobile screens to prevent unwanted iOS Safari viewport auto-zooming.</li>
+        <li><strong>Dynamic Viewport Support:</strong> Full <span class="code-pill">100dvh</span> support on AI slide-over panels and <span class="code-pill">.pb-safe</span> safe-area padding for notched screens.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Synchronized Accessibility System</span>
+      </div>
+      <ul style="font-size: 8pt;">
+        <li><strong>Proportional Typography Scaling:</strong> 4 scale profiles: Small (92%), Default (100%), Large (112%), and Extra Large (124%) applied to root rem units.</li>
+        <li><strong>High Contrast &amp; Focus Ring:</strong> Enforces 7:1+ contrast ratios with a high-visibility 3px gold ring (<span class="code-pill">#fbbf24</span>) on active keyboard controls.</li>
+        <li><strong>Reduced Motion Engine:</strong> Freezes canvas starfields and decorative orbital SVG rotations to accommodate photosensitive or vestibular needs.</li>
+        <li><strong>Portable Device Profile Sync:</strong> One-click generation of shareable base64 URL links (<span class="code-pill">?a11y=...</span>) to configure mobile devices instantly.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- NASA DATA PROVENANCE & TECHNICAL STACK -->
+  <h2>5. Space Agency Data Provenance &amp; Technology Stack</h2>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">NASA Data Sources Used</span>
+      </div>
+      <ul style="font-size: 8pt;">
+        <li><strong>NASA Physical Sciences Informatics (PSI):</strong> <span class="code-pill">psi.nasa.gov</span> — Investigation metadata, test geometries, and combustion records.</li>
+        <li><strong>NASA Technical Reports Server (NTRS):</strong> <span class="code-pill">ntrs.nasa.gov</span> — Apollo 1 / Apollo 13 incident reports and Mir fire analysis.</li>
+        <li><strong>NASA Saffire Mission Documentation:</strong> Spacecraft Fire Safety Demonstrations conducted aboard uncrewed Cygnus spacecraft.</li>
+        <li><strong>NASA Safety Standard:</strong> <span class="code-pill">NASA-STD-6001B</span> — Flammability, Offgassing, and Materials Compatibility.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Core Technology Stack</span>
+      </div>
+      <ul style="font-size: 8pt;">
+        <li><strong>Framework &amp; UI:</strong> Next.js 14 (App Router), React 18, TypeScript, Tailwind CSS, Framer Motion.</li>
+        <li><strong>3D Scientific Engine:</strong> Three.js, <span class="code-pill">@react-three/fiber</span>, <span class="code-pill">@react-three/drei</span>.</li>
+        <li><strong>Artificial Intelligence:</strong> Gemini API with autonomous multi-turn tool calling and deterministic offline fallback.</li>
+        <li><strong>Cross-Tab Sync:</strong> Native Web APIs (<span class="code-pill">BroadcastChannel</span>, <span class="code-pill">localStorage</span>).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SCIENTIFIC INTEGRITY STATEMENT -->
+  <h2>6. Scientific Honesty &amp; Model Limitations</h2>
+  <div class="highlight-box">
+    <strong>Model Transparency Commitment:</strong>
+    FLARE explicitly badges all outputs so users distinguish between measured flight data, literature benchmarks, and model estimates.
+    <ul style="margin-top: 6px; font-size: 8.5pt;">
+      <li><strong>0D/1D Analytical D² Law:</strong> FLARE's simulator calculates analytical droplet/solid-sphere equivalent kinetics and does not claim to run full 3D Navier-Stokes computational fluid dynamics (CFD).</li>
+      <li><strong>Saffire Flight Safety Context:</strong> Saffire I–VI experiments were conducted aboard uncrewed Cygnus cargo vehicles following ISS departure prior to atmospheric reentry—never inside an occupied crew habitat.</li>
+      <li><strong>Zero Authentication Gates:</strong> The entire platform is 100% public, free, and instantly accessible to anyone worldwide.</li>
+    </ul>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-note">
+    <span>Developed by <strong>Team WUNDERBAO</strong> for the <strong>NASA Space Apps Challenge 2026</strong></span>
+    <span>GitHub: <strong>jomanaahmed19/FLARE-NASA-SpaceApps</strong></span>
+  </div>
+
+</body>
+</html>
